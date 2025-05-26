@@ -1,1 +1,1 @@
-longNTL.github.io
+longNTL.io
