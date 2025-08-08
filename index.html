@@ -8,68 +8,133 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; background: #f0f4f8; color: #333; position: relative; }
-    header {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    html {scroll-behavior: smooth;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
       color: #fff;
-      padding: 40px 20px;
-      text-align: center;
+      position: relative;
+      overflow-x: hidden;
     }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
-    nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; padding: 10px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    nav ul li { margin: 10px; }
-    nav ul li a { text-decoration: none; color: #2a5298; font-weight: 600; transition: color 0.3s; }
-    nav ul li a:hover { color: #1e3c72; }
-    .section { padding: 60px 20px; max-width: 1000px; margin: auto; position: relative; z-index: 2; }
-    .section h2 { font-size: 2rem; color: #2a5298; margin-bottom: 20px; text-align: center; }
-    .avatar { width: 160px; height: 160px; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin: auto; display: block; object-fit: cover; object-position: center; }
-    .bio { text-align: center; margin-top: 20px; }
-    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .skill { background: #fff; border-left: 6px solid #2a5298; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .project { background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; }
-    .project h3 { color: #1e3c72; }
-    .contact form { display: grid; gap: 15px; }
-    .contact input, .contact textarea { padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
-    .contact button { background: #2a5298; color: #fff; border: none; padding: 10px; border-radius: 6px; cursor: pointer; transition: background 0.3s; }
-    .contact button:hover { background: #1e3c72; }
-    footer { text-align: center; padding: 30px; background: #2a5298; color: white; }
-    #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    header {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      padding: 10px;
+      border-radius: 0 0 15px 15px;
+    }
+    nav ul li {margin: 8px;}
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover {background: rgba(255,255,255,0.2);}
+    .section {padding: 60px 20px; max-width: 1000px; margin: auto; position: relative; z-index: 2;}
+    .section h2 {font-size: 2rem; color: #38bdf8; margin-bottom: 20px; text-align: center;}
+    .avatar {
+      width: 160px; height: 160px; border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin: auto; display: block; object-fit: cover; object-position: center;
+    }
+    .bio {text-align: center; margin-top: 20px; font-size: 1.1rem; line-height: 1.6;}
+    .skills {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
+    .skill {
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .skill strong {display: block; margin-bottom: 8px;}
+    .progress-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+    .contact form {display: grid; gap: 15px;}
+    .contact input, .contact textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+    .contact button {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .contact button:hover {transform: scale(1.05);}
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.4);
+      font-size: 0.9rem;
+    }
+    #particles-js {position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;}
     .social-sidebar {
       position: fixed; top: 50%; left: 10px; transform: translateY(-50%);
       display: flex; flex-direction: column; gap: 10px;
       z-index: 3;
     }
     .social-sidebar a {
-      color: #2a5298; font-size: 20px; background: #fff; padding: 10px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      color: #fff; font-size: 20px; background: rgba(255,255,255,0.1);
+      padding: 10px; border-radius: 50%;
       transition: background 0.3s;
     }
-    .social-sidebar a:hover { background: #2a5298; color: #fff; }
+    .social-sidebar a:hover {background: #38bdf8;}
     .quote-right {
       position: fixed; top: 50%; right: 10px; transform: translateY(-50%);
-      max-width: 160px; background: #fff; padding: 15px;
+      max-width: 160px; background: rgba(255,255,255,0.1); padding: 15px;
       font-style: italic; font-size: 0.9rem;
-      color: #2a5298; border-left: 4px solid #2a5298;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius: 8px;
+      color: #38bdf8; border-left: 4px solid #38bdf8;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); border-radius: 8px;
       z-index: 3;
     }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
+
   <div class="social-sidebar" data-aos="fade-right">
-    <a href="https://facebook.com/nguyenlong1702" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thann._.lonnq/" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/nguyenlong1702"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thann._.lonnq/"><i class="fab fa-instagram"></i></a>
   </div>
+
   <div class="quote-right" data-aos="fade-left">
     “Học không bao giờ là đủ – hãy tiến lên!”
   </div>
 
   <header data-aos="fade-down">
-    <img src="https://photos.fife.usercontent.google.com/pw/AP1GczPn9pxD71mG0NVPJL9csang5xpTRM96oZKP6V0Hn-eLmpZSxhxPZawP=w1227-h920-s-no-gm?authuser=1" class="avatar" alt="Avatar">
+    <img src="https://scontent.fsgn8-3.fna.fbcdn.net/v/t39.30808-6/528017132_1072729524980536_6485400945958887608_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHKQrCKV0S32dzlZUHtmjk7grlwZt6TA4-CuXBm3pMDj1DBOKVX8MMRUqEwfoUmHsWEiJCiOzrnLiA-qWESNtHJ&_nc_ohc=ooakRx9Vk94Q7kNvwEJFmHe&_nc_oc=Adkix0HJ5GrOauV21_7dWdYr4abB1-QM99cb7T3wZ5YBIsWejwzcphBb6ZUjwdiZeMvIgFdPFDaicoL452y1wRMj&_nc_zt=23&_nc_ht=scontent.fsgn8-3.fna&_nc_gid=PKKhbjxJAf7cscP8F39Nwg&oh=00_AfX7rNBev2OGECljfJMmvm2-01_3cI1-zrorwy9WSZ8CnQ&oe=689BDDAE" class="avatar" alt="Avatar">
     <h1>Nguyễn Thanh Long</h1>
     <p>Student @ THPT Củ Chi</p>
   </header>
@@ -90,14 +155,14 @@
   <section class="section" id="skills" data-aos="fade-up">
     <h2>Kỹ năng học tập</h2>
     <div class="skills">
-      <div class="skill"><strong>Toán:</strong> Tạm tạm (65%)</div>
-      <div class="skill"><strong>Văn:</strong> Chém gió tốt (85%)</div>
-      <div class="skill"><strong>Lý:</strong> Gần liệt (30%)</div>
-      <div class="skill"><strong>Hóa:</strong> Biết áp dụng công thức (75%)</div>
-      <div class="skill"><strong>Tiếng Anh:</strong> Speaking tốt (95%)</div>
-      <div class="skill"><strong>Sinh:</strong> Có quý nhân phù trợ (90%)</div>
-      <div class="skill"><strong>Quốc phòng:</strong> Ước mơ làm quân nhân (85%)</div>
-      <div class="skill"><strong>Lịch sử:</strong> 10 điểm yêu nước (75%)</div>
+      <div class="skill"><strong>Toán</strong><div class="progress-bar"><div class="progress" data-width="50%"></div></div></div>
+      <div class="skill"><strong>Văn</strong><div class="progress-bar"><div class="progress" data-width="75%"></div></div></div>
+      <div class="skill"><strong>Lý</strong><div class="progress-bar"><div class="progress" data-width="45%"></div></div></div>
+      <div class="skill"><strong>Hóa</strong><div class="progress-bar"><div class="progress" data-width="65%"></div></div></div>
+      <div class="skill"><strong>Tiếng Anh</strong><div class="progress-bar"><div class="progress" data-width="80%"></div></div></div>
+      <div class="skill"><strong>Sinh</strong><div class="progress-bar"><div class="progress" data-width="60%"></div></div></div>
+      <div class="skill"><strong>Quốc phòng</strong><div class="progress-bar"><div class="progress" data-width="85%"></div></div></div>
+      <div class="skill"><strong>Lịch sử</strong><div class="progress-bar"><div class="progress" data-width="75%"></div></div></div>
     </div>
   </section>
 
@@ -112,41 +177,41 @@
   </section>
 
   <footer>
-    <p>© 2025 Nguyễn Thanh Long | Facebook: <a href="https://facebook.com/nguyenlong1702" style="color:#fff">nguyenlong1702</a></p>
+    <p>© 2025 Nguyễn Thanh Long | Facebook: <a href="https://facebook.com/nguyenlong1702" style="color:#38bdf8">nguyenlong1702</a></p>
   </footer>
 
   <audio id="bg-music" loop>
     <source src="https://lit2talks.com/tool/play_audio.php?id=MjA2Ng%3D%3D" type="audio/mp4">
-    Trình duyệt của bạn không hỗ trợ phát nhạc.
   </audio>
   <div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-    <button onclick="toggleMusic()" style="background:#2a5298;color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;">
-      🎵 Bật / Tắt nhạc
-    </button>
+    <button onclick="toggleMusic()" style="background:linear-gradient(90deg,#38bdf8,#818cf8);color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;">🎵 Bật / Tắt nhạc</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json');
-
+    particlesJS("particles-js", {
+      particles: {number: {value: 60}, size: {value: 3}, move: {speed: 1}, line_linked: {enable: true, color: "#38bdf8"}},
+      interactivity: {events: {onhover: {enable: true, mode: "repulse"}}}
+    });
     const music = document.getElementById('bg-music');
     let hasPlayed = false;
     function toggleMusic() {
-      if (music.paused) {
-        music.play();
-        hasPlayed = true;
-      } else {
-        music.pause();
-      }
+      if (music.paused) {music.play(); hasPlayed = true;} else {music.pause();}
     }
     document.addEventListener('click', () => {
-      if (!hasPlayed) {
-        music.play().catch(() => {});
-        hasPlayed = true;
-      }
-    }, { once: true });
+      if (!hasPlayed) {music.play().catch(()=>{}); hasPlayed = true;}
+    }, {once:true});
+    // progress bar animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute('data-width');
+        }
+      });
+    }, {threshold: 0.5});
+    document.querySelectorAll('.progress').forEach(p => observer.observe(p));
   </script>
 </body>
 </html>
